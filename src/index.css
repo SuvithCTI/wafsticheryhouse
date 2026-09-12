@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgba(212, 175, 55, 0.15);
+  }
+
+  body {
+    background: radial-gradient(circle at 50% 0%, #280e22 0%, #1a0816 45%, #10050e 100%);
+    background-attachment: fixed;
+    color: #FAF7F2;
+    overflow-x: hidden;
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #180915;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #4a2438;
+    border-radius: 4px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+  }
+}
+
+/* Luxury gold text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF8E1 0%, #F5D77F 30%, #D4AF37 70%, #AA7C11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-subtle {
+  background: linear-gradient(135deg, #F3E5AB 0%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism cards with warm royal wine undertones */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(42, 18, 35, 0.7) 0%, rgba(22, 9, 18, 0.8) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 240, 200, 0.1);
+}
+
+.glass-panel-glow {
+  background: linear-gradient(135deg, rgba(54, 22, 44, 0.8) 0%, rgba(28, 11, 23, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 12px 40px 0 rgba(212, 175, 55, 0.2), 0 0 25px rgba(142, 41, 74, 0.25), inset 0 1px 1px 0 rgba(255, 240, 200, 0.18);
+}
+
+/* Golden thread line shimmer */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.8), transparent);
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to bottom right, #D4AF37, rgba(212, 175, 55, 0.2), #D4AF37) 1;
+}
