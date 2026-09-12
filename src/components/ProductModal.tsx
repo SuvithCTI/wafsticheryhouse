@@ -35,8 +35,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
         className="fixed inset-0 bg-black/90 backdrop-blur-md transition-opacity"
       />
 
-      {/* Modal Dialog */}
-      <div className="relative w-full max-w-4xl max-h-[76vh] sm:max-h-[80vh] bg-[#14121a] rounded-3xl border-2 border-gold-400/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] overflow-hidden z-10 my-auto flex flex-col md:flex-row animate-in zoom-in-95 duration-200">
+      {/* Modal Dialog Container - Single Unified Box on Mobile */}
+      <div className="relative w-full max-w-4xl max-h-[82vh] sm:max-h-[85vh] bg-[#14121a] rounded-3xl border-2 border-gold-400/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] overflow-y-auto md:overflow-hidden z-10 my-auto flex flex-col md:flex-row animate-in zoom-in-95 duration-200">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -46,9 +46,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({
           <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
-        {/* Images Section (Left) */}
-        <div className="w-full md:w-1/2 p-4 sm:p-6 bg-[#0e0c14] flex flex-col justify-between border-b md:border-b-0 md:border-r border-gold-400/20 space-y-3 max-h-[76vh] sm:max-h-[80vh] overflow-y-auto">
-          <div className="relative w-full h-full min-h-[260px] max-h-[380px] rounded-2xl overflow-hidden border border-gold-400/20 bg-zinc-900 shadow-inner flex items-center justify-center">
+        {/* Images & Sizing Section (Top on Mobile, Left on Desktop) */}
+        <div className="w-full md:w-1/2 p-4 sm:p-6 bg-[#14121a] md:bg-[#0e0c14] flex flex-col justify-between md:border-r border-gold-400/20 space-y-4 overflow-visible md:overflow-y-auto md:max-h-[85vh]">
+          <div className="relative w-full h-[240px] sm:h-[300px] md:h-full md:min-h-[260px] md:max-h-[380px] rounded-2xl overflow-hidden border border-gold-400/20 bg-zinc-900 shadow-inner flex items-center justify-center">
             <img
               src={selectedImg}
               alt={product.name}
@@ -105,8 +105,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
           </div>
         </div>
 
-        {/* Details Section (Right, Scrollable & Justified) */}
-        <div className="w-full md:w-1/2 p-5 sm:p-7 pr-12 sm:pr-14 flex flex-col justify-between space-y-4 overflow-y-auto max-h-[78vh] sm:max-h-[82vh]">
+        {/* Details Section (Bottom on Mobile, Right on Desktop) */}
+        <div className="w-full md:w-1/2 p-4 sm:p-7 pr-4 sm:pr-14 flex flex-col justify-between space-y-4 overflow-visible md:overflow-y-auto md:max-h-[85vh]">
           <div className="space-y-4">
             <div>
               <span className="text-[10px] uppercase tracking-widest text-gold-400 font-semibold px-2.5 py-1 rounded-full bg-gold-400/10 border border-gold-400/30">
