@@ -46,17 +46,17 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       />
 
       {/* Drawer */}
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-[#131119] border-l border-gold-400/30 text-white shadow-2xl flex flex-col justify-between z-10 animate-in slide-in-from-right duration-300">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10 w-full sm:w-auto">
+        <div className="w-full sm:w-screen max-w-full sm:max-w-md bg-[#131119] border-l border-gold-400/30 text-white shadow-2xl flex flex-col justify-between z-10 animate-in slide-in-from-right duration-300">
           
           {/* Header */}
-          <div className="p-5 sm:p-6 border-b border-gold-400/20 flex items-center justify-between bg-[#191622]">
+          <div className="p-4 sm:p-6 border-b border-gold-400/20 flex items-center justify-between bg-[#191622]">
             <div className="flex items-center space-x-2.5">
-              <div className="w-9 h-9 rounded-full bg-gold-400/10 border border-gold-400/40 flex items-center justify-center text-gold-300">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gold-400/10 border border-gold-400/40 flex items-center justify-center text-gold-300">
                 <ShoppingBag className="w-4 h-4" />
               </div>
               <div>
-                <h2 className="font-serif text-lg font-bold text-white">Your Atelier Cart</h2>
+                <h2 className="font-serif text-base sm:text-lg font-bold text-white">Your Atelier Cart</h2>
                 <p className="text-[10px] text-zinc-400 uppercase tracking-wider">
                   {items.length} {items.length === 1 ? 'Item' : 'Items'} Selected
                 </p>
@@ -73,7 +73,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           </div>
 
           {/* Cart Items List */}
-          <div className="flex-1 overflow-y-auto p-5 space-y-4">
+          <div className="flex-1 overflow-y-auto p-3.5 sm:p-5 space-y-3.5">
             {items.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
                 <div className="w-16 h-16 rounded-full bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
@@ -100,49 +100,49 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               items.map((item, idx) => (
                 <div
                   key={`${item.product.id}-${item.selectedSize}-${idx}`}
-                  className="p-3.5 rounded-2xl bg-[#1a1724] border border-gold-400/20 flex space-x-3.5 items-center relative group"
+                  className="p-3 sm:p-3.5 rounded-2xl bg-[#1a1724] border border-gold-400/20 flex space-x-3 items-center relative group"
                 >
                   <img
                     src={item.product.image}
                     alt={item.product.name}
-                    className="w-20 h-24 object-cover rounded-xl border border-gold-400/30 flex-shrink-0"
+                    className="w-16 h-20 sm:w-20 sm:h-24 object-cover rounded-xl border border-gold-400/30 flex-shrink-0"
                   />
 
-                  <div className="flex-1 min-w-0 flex flex-col justify-between space-y-1.5">
-                    <div className="pr-6">
+                  <div className="flex-1 min-w-0 flex flex-col justify-between space-y-1.5 pr-6">
+                    <div>
                       <span className="text-[9px] uppercase tracking-widest text-gold-400 font-medium">
                         {item.product.category}
                       </span>
-                      <h4 className="font-serif text-xs font-bold text-white truncate">
+                      <h4 className="font-serif text-xs font-bold text-white truncate pr-2">
                         {item.product.name}
                       </h4>
                       <div className="flex items-center space-x-2 mt-1">
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-black/50 text-gold-300 border border-gold-400/30">
+                        <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded bg-black/50 text-gold-300 border border-gold-400/30">
                           Size: {item.selectedSize}
                         </span>
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between pt-1">
+                    <div className="flex items-center justify-between pt-1 flex-wrap gap-1">
                       {/* Quantity Controls */}
-                      <div className="flex items-center space-x-1.5 bg-black/60 rounded-lg p-0.5 border border-gold-400/20">
+                      <div className="flex items-center space-x-1 bg-black/60 rounded-lg p-0.5 border border-gold-400/20">
                         <button
                           onClick={() => onUpdateQuantity(item.product.id, item.selectedSize, -1)}
-                          className="w-6 h-6 rounded flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10"
+                          className="w-5 h-5 sm:w-6 sm:h-6 rounded flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10"
                         >
-                          <Minus className="w-3 h-3" />
+                          <Minus className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                         </button>
-                        <span className="text-xs font-semibold text-white px-1.5">{item.quantity}</span>
+                        <span className="text-[11px] sm:text-xs font-semibold text-white px-1">{item.quantity}</span>
                         <button
                           onClick={() => onUpdateQuantity(item.product.id, item.selectedSize, 1)}
-                          className="w-6 h-6 rounded flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10"
+                          className="w-5 h-5 sm:w-6 sm:h-6 rounded flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10"
                         >
-                          <Plus className="w-3 h-3" />
+                          <Plus className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                         </button>
                       </div>
 
                       {/* Price */}
-                      <span className="font-serif text-sm font-bold text-gold-gradient">
+                      <span className="font-serif text-xs sm:text-sm font-bold text-gold-gradient">
                         ₹{(item.product.price * item.quantity).toLocaleString('en-IN')}
                       </span>
                     </div>
@@ -163,7 +163,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
           {/* Footer */}
           {items.length > 0 && (
-            <div className="p-5 sm:p-6 border-t border-gold-400/20 bg-[#171421] space-y-4">
+            <div className="p-4 sm:p-6 border-t border-gold-400/20 bg-[#171421] space-y-3.5">
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs text-zinc-400">
                   <span>Items Subtotal:</span>

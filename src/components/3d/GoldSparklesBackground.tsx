@@ -20,21 +20,22 @@ export const GoldSparklesBackground: React.FC = () => {
     };
     window.addEventListener('resize', onResize);
 
-    // 1. Warm Dreamy Bokeh Orbs (creates soft luminous warmth in the background)
-    const bokehCount = 14;
+    // Adapt count for mobile responsiveness and performance
+    const isMobile = width < 768;
+    const bokehCount = isMobile ? 6 : 14;
     const bokehOrbs = Array.from({ length: bokehCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      radius: Math.random() * 80 + 45,
-      speedX: (Math.random() - 0.5) * 0.2,
-      speedY: (Math.random() - 0.5) * 0.2,
+      radius: Math.random() * (isMobile ? 50 : 80) + 35,
+      speedX: (Math.random() - 0.5) * 0.15,
+      speedY: (Math.random() - 0.5) * 0.15,
       hue: Math.random() > 0.4 ? 'rgba(212, 175, 55,' : 'rgba(184, 88, 116,', // Gold and warm wine
       alpha: Math.random() * 0.12 + 0.05,
       pulse: Math.random() * Math.PI * 2
     }));
 
     // 2. Fine Golden Glitter Embers
-    const particleCount = 55;
+    const particleCount = isMobile ? 25 : 55;
     const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,

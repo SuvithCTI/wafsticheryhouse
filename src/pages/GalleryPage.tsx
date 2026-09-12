@@ -132,23 +132,22 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavigate }) => {
 
       {/* Lightbox Modal */}
       {activeItem && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 pt-24 sm:pt-28 pb-6 overflow-y-auto">
           {/* Backdrop */}
           <div
             onClick={() => setActiveItem(null)}
             className="fixed inset-0 bg-black/90 backdrop-blur-md transition-opacity"
           />
 
-          {/* Fixed Top-Right Close Button for Mobile & Desktop */}
-          <button
-            onClick={() => setActiveItem(null)}
-            className="fixed top-4 right-4 z-[110] w-10 h-10 rounded-full bg-black/90 border border-gold-400/60 text-gold-300 hover:text-white hover:bg-gold-500/20 flex items-center justify-center shadow-2xl backdrop-blur-lg transition cursor-pointer"
-            title="Close"
-          >
-            <X className="w-5 h-5" />
-          </button>
-
-          <div className="relative w-full max-w-3xl bg-[#14121a] rounded-3xl border border-gold-400/30 shadow-2xl overflow-hidden z-10 animate-in zoom-in-95 duration-200 my-auto">
+          <div className="relative w-full max-w-3xl max-h-[76vh] sm:max-h-[80vh] bg-[#14121a] rounded-3xl border border-gold-400/30 shadow-2xl overflow-y-auto z-10 animate-in zoom-in-95 duration-200 my-auto">
+            {/* Close Button Inside Modal Dialog Header */}
+            <button
+              onClick={() => setActiveItem(null)}
+              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/80 border border-gold-400/40 text-gold-300 hover:text-white hover:bg-gold-500/20 hover:border-gold-400 transition-all flex items-center justify-center shadow-xl backdrop-blur-md cursor-pointer"
+              title="Close"
+            >
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="aspect-[4/5] bg-black">
                 <img

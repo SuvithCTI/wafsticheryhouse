@@ -16,7 +16,6 @@ import {
   Heart,
   CheckCircle2,
   Crown,
-  MessageCircle,
   Package,
   Layers,
   Compass,
@@ -179,15 +178,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <a
-                href="https://wa.me/918807674672?text=Hello%20WAF%20Stitchery%20House!%20I%20am%20looking%20for%20a%20bridal%20blouse%20/%20custom%20dress%20consultation."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto flex items-center justify-center space-x-2 px-6 py-3.5 rounded-full bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 font-semibold text-xs tracking-wider uppercase transition-all duration-300 shadow-sm"
-              >
-                <MessageCircle className="w-4 h-4 text-emerald-400" />
-                <span>WhatsApp Stylist</span>
-              </a>
 
               <button
                 onClick={() => onNavigate('contact')}

@@ -28,27 +28,26 @@ export const ProductModal: React.FC<ProductModalProps> = ({
   const sizes = ['XS (32)', 'S (34)', 'M (36)', 'L (38)', 'XL (40)', 'Custom Sizing'];
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 overflow-hidden">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 pt-24 sm:pt-28 pb-6 overflow-y-auto">
       {/* Backdrop */}
       <div
         onClick={onClose}
         className="fixed inset-0 bg-black/90 backdrop-blur-md transition-opacity"
       />
 
-      {/* Fixed Top-Right Close Button for Mobile & Desktop */}
-      <button
-        onClick={onClose}
-        className="fixed top-4 right-4 sm:top-6 sm:right-6 z-[110] w-10 h-10 rounded-full bg-black/90 border border-gold-400/60 text-gold-300 hover:text-white hover:bg-gold-500/20 flex items-center justify-center shadow-2xl backdrop-blur-lg transition cursor-pointer"
-        title="Close Modal"
-      >
-        <X className="w-5 h-5" />
-      </button>
-
       {/* Modal Dialog */}
-      <div className="relative w-full max-w-4xl max-h-[82vh] sm:max-h-[85vh] bg-[#14121a] rounded-3xl border-2 border-gold-400/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] overflow-hidden z-10 my-auto flex flex-col md:flex-row animate-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-4xl max-h-[76vh] sm:max-h-[80vh] bg-[#14121a] rounded-3xl border-2 border-gold-400/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] overflow-hidden z-10 my-auto flex flex-col md:flex-row animate-in zoom-in-95 duration-200">
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/80 border border-gold-400/40 text-gold-300 hover:text-white hover:bg-gold-500/20 hover:border-gold-400 transition-all flex items-center justify-center shadow-xl backdrop-blur-md cursor-pointer"
+          title="Close Modal"
+        >
+          <X className="w-4 h-4 sm:w-5 sm:h-5" />
+        </button>
 
         {/* Images Section (Left) */}
-        <div className="w-full md:w-1/2 p-5 sm:p-6 bg-[#0e0c14] flex flex-col justify-between border-b md:border-b-0 md:border-r border-gold-400/20 space-y-3 max-h-[78vh] sm:max-h-[82vh] overflow-y-auto">
+        <div className="w-full md:w-1/2 p-4 sm:p-6 bg-[#0e0c14] flex flex-col justify-between border-b md:border-b-0 md:border-r border-gold-400/20 space-y-3 max-h-[76vh] sm:max-h-[80vh] overflow-y-auto">
           <div className="relative w-full h-full min-h-[260px] max-h-[380px] rounded-2xl overflow-hidden border border-gold-400/20 bg-zinc-900 shadow-inner flex items-center justify-center">
             <img
               src={selectedImg}
