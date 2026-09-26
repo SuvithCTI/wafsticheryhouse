@@ -84,7 +84,8 @@ export const storageService = {
       return SAMPLE_INQUIRIES;
     }
     try {
-      return JSON.parse(raw);
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : SAMPLE_INQUIRIES;
     } catch {
       return SAMPLE_INQUIRIES;
     }
@@ -121,7 +122,7 @@ export const storageService = {
         localStorage.setItem(STORAGE_KEYS.GALLERY, JSON.stringify(INITIAL_GALLERY));
         return INITIAL_GALLERY;
       }
-      return parsed;
+      return Array.isArray(parsed) ? parsed : INITIAL_GALLERY;
     } catch {
       return INITIAL_GALLERY;
     }
@@ -146,7 +147,8 @@ export const storageService = {
       return INITIAL_REVIEWS;
     }
     try {
-      return JSON.parse(raw);
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : INITIAL_REVIEWS;
     } catch {
       return INITIAL_REVIEWS;
     }
@@ -169,7 +171,8 @@ export const storageService = {
     const raw = localStorage.getItem(STORAGE_KEYS.CART);
     if (!raw) return [];
     try {
-      return JSON.parse(raw);
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
     } catch {
       return [];
     }
@@ -184,7 +187,8 @@ export const storageService = {
     const raw = localStorage.getItem(STORAGE_KEYS.WISHLIST);
     if (!raw) return [];
     try {
-      return JSON.parse(raw);
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
     } catch {
       return [];
     }
